@@ -10,6 +10,9 @@ import { ResgistradoComponent } from './RegisOk/resgistrado/resgistrado.componen
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { ProductosComponent } from './productos/productos.component';
+import { QuieneSomosComponent } from './quiene-somos/quiene-somos.component';
+import { CompoServeComponent } from './compo-serve/compo-serve.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HomeComponent } from './home/home.component';
     ResgistradoComponent,
     NavComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProductosComponent,
+    QuieneSomosComponent,
+    CompoServeComponent
   ],
   imports: [
     FormsModule,

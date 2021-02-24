@@ -1,3 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Oi&family=Open+Sans&display=swap');
-h1{color: rebeccapurple;float:right;font-family: cursive;}
+h1{color: rgb(29, 27, 31);float:right;font-family: cursive;}
 a{font-family: 'Newsreader', serif;}
+#boton{margin:auto 100px; font-family: 'Newsreader', serif;}
