@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductosComponent } from './productos/productos.component';
 import { QuieneSomosComponent } from './quiene-somos/quiene-somos.component';
 import { CompoServeComponent } from './compo-serve/compo-serve.component';
+import { MostrarProductComponent } from './mostrar-product/mostrar-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CompoServeComponent } from './compo-serve/compo-serve.component';
     HomeComponent,
     ProductosComponent,
     QuieneSomosComponent,
-    CompoServeComponent
+    CompoServeComponent,
+    MostrarProductComponent
   ],
   imports: [
     FormsModule,
