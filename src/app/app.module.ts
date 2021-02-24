@@ -14,6 +14,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { QuieneSomosComponent } from './quiene-somos/quiene-somos.component';
 import { CompoServeComponent } from './compo-serve/compo-serve.component';
 import { MostrarProductComponent } from './mostrar-product/mostrar-product.component';
+import { LoginComponent } from './login/login.component';
+import { ReservacionComponent } from './reservacion/reservacion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { MostrarProductComponent } from './mostrar-product/mostrar-product.compo
     ProductosComponent,
     QuieneSomosComponent,
     CompoServeComponent,
-    MostrarProductComponent
+    MostrarProductComponent,
+    LoginComponent,
+    ReservacionComponent
   ],
   imports: [
     FormsModule,
