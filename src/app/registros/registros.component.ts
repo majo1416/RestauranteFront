@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { ServiceService} from '../Service/service.service'
+import { ServiceService} from '../Service/service.service';
 @Component({
   selector: 'app-registros',
   templateUrl: './registros.component.html',
@@ -38,7 +38,7 @@ export class RegistrosComponent implements OnInit {
       }
       console.log(data);
       this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/login',data).subscribe(
+      this.client.postRequest('http://localhost:5000/api/v01/user/register',data).subscribe(
 
         (response: any) => {
           //cambiando load a true, volvemos a ocultar el spinner

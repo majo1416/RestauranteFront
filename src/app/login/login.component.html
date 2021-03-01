@@ -1,14 +1,47 @@
 <app-nav></app-nav>
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Correo</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<div id="posicion">
+  <div *ngIf="load">
+    <h1>ZONA DE REGISTRO: </h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input formControlName="email" type="email" class="form-control" i aria-describedby="emailHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input formControlName="password" type="password" class="form-control" >
+        </div>
+        <button type="submit" class="btn btn-outline-success">Iniciar</button>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+  <div id="BORDES">
+    <div *ngIf="!load">
+    <h1>ESPERA UN MOMENTO...</h1>
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-light" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="visually-hidden"></span>
+    </div>
   </div>
-  <button type="submit" class="btn btn-secondary">Iniciar Sesion</button><br>
-  <a class="nav-link active" aria-current="page" href="/registrar">No estas Registrado?Haz click aqui..</a>
-</form>
+</div>
 <app-footer></app-footer>
