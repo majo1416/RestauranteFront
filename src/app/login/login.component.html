@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <div id="posicion">
   <div *ngIf="load">
-    <h1>ZONA DE REGISTRO: </h1>
+    <h1>LOGIN </h1>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
@@ -12,9 +12,13 @@
             <label for="exampleInputPassword1">Password</label>
             <input formControlName="password" type="password" class="form-control" >
         </div>
+        <br><br>
         <button type="submit" class="btn btn-outline-success">Iniciar</button>
+        <br><br>
+        <a class="nav-link active" aria-current="page" href="/registrar">¿No te haz registrado Registrar?</a>
     </form>
   </div>
+</div>
   <div id="BORDES">
     <div *ngIf="!load">
     <h1>ESPERA UN MOMENTO...</h1>
