@@ -1,5 +1,62 @@
 <app-nav></app-nav>
 
-<p>compo-serve works!</p>
+<div id="posicion">
+    <div *ngIf="load">
+      <h1>Pedidos </h1>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+          <div class="form-group">
+              <label for="exampleInputEmail1">Correo Electronico</label>
+              <input formControlName="email" type="email" class="form-control" i aria-describedby="emailHelp">
+          </div>
+    
+          <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input formControlName="password" type="password" class="form-control" >
+          </div>
+    
+          <div class="form-group">
+              <label for="exampleInputPassword1">Nombres</label>
+              <input formControlName="name" type="text" class="form-control" >
+          </div>
+    
+          <div class="form-group">
+              <label for="exampleInputPassword1">Apellidos</label>
+              <input formControlName="lastname" type="text" class="form-control" >
+          </div>
+          <br><br>
+          <button type="submit" class="btn btn-outline-success">Registrar</button>
+      </form>
+      <br>
+    </div>
+    <div id="BORDES">
+      <div *ngIf="!load">
+      <h1>ESPERA UN MOMENTO...</h1>
+      <div class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-success" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-light" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+      <div class="spinner-grow text-dark" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>
+    </div>
+    </div>
 
 <app-footer></app-footer>

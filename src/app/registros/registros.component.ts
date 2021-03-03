@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 @Component({
   selector: 'app-registros',
   templateUrl: './registros.component.html',
@@ -43,8 +44,14 @@ export class RegistrosComponent implements OnInit {
         (response: any) => {
           //cambiando load a true, volvemos a ocultar el spinner
           this.load = true;
-          this.route.navigate( ['/registrado']);
-          //console.log(response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            showConfirmButton: true,
+            confirmButtonText: `Ok`
+          }).then(() => {
+            this.route.navigate( ['/'])
+        })
 
 
 
