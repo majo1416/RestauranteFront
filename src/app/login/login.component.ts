@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
               Swal.fire('Los cambios no han sido guardados', '', 'info')
             }
           })*/
-          Swal.fire('INICIO DE SESION CORRECTO').then((result) =>{
+          Swal.fire('INICIO DE SESION CORRECTAMENTE').then((result) =>{
             if (result.isConfirmed) {
                //cambiando load a true, volvemos a ocultar el spinner
               this.load = true;
@@ -63,15 +63,22 @@ export class LoginComponent implements OnInit {
      },
       (error) => {
         this.load = true;
-
         console.log(error.status);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'NO TENEMOS CONEXION EN EL SERVIDOR',
+        })
 
       })
-
-
     } else {
-
       console.log("Form error");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'DATOS ICORRECTOS',
+
+      })
     }
 
 
