@@ -58,9 +58,14 @@ export class PedidosComponent implements OnInit {
       },
       (error) => {
         this.load = true;
-
         console.log(error.status);
-
+        this.load = true;
+        console.log(error.status);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'NO TENEMOS CONEXION EN EL SERVIDOR',
+        })
       })
 
 
