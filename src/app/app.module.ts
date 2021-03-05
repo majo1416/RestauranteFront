@@ -12,10 +12,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProductosComponent } from './productos/productos.component';
 import { QuieneSomosComponent } from './quiene-somos/quiene-somos.component';
-import { CompoServeComponent } from './compo-serve/compo-serve.component';
 import { MostrarProductComponent } from './mostrar-product/mostrar-product.component';
 import { LoginComponent } from './login/login.component';
 import { ReservacionComponent } from './reservacion/reservacion.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,10 @@ import { ReservacionComponent } from './reservacion/reservacion.component';
     HomeComponent,
     ProductosComponent,
     QuieneSomosComponent,
-    CompoServeComponent,
     MostrarProductComponent,
     LoginComponent,
-    ReservacionComponent
+    ReservacionComponent,
+    PedidosComponent
   ],
   imports: [
     FormsModule,

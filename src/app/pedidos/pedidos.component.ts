@@ -4,27 +4,26 @@ import { Router } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
-
 @Component({
-  selector: 'app-compo-serve',
-  templateUrl: './compo-serve.component.html',
-  styleUrls: ['./compo-serve.component.css']
+  selector: 'app-pedidos',
+  templateUrl: './pedidos.component.html',
+  styleUrls: ['./pedidos.component.css']
 })
-export class CompoServeComponent implements OnInit {
+export class PedidosComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
-
-  constructor(
-    private fb: FormBuilder,
+  constructor(  private fb: FormBuilder,
     private route: Router,
     private client: ServiceService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       email: ['', Validators.email],
-      password: ['', Validators.required],
       name: ['', Validators.required],
       lastname: ['', Validators.required],
+      tel: ['', Validators.required],
+      direccion: ['', Validators.required],
+      fecha: ['', Validators.required],
     });
   }
   async onSubmit() {
@@ -34,9 +33,11 @@ export class CompoServeComponent implements OnInit {
 
       let data = {
         email: this.form.value.email,
-        password: this.form.value.password,
         name: this.form.value.name,
         lastname: this.form.value.lastname,
+        tel: this.form.value.tel,
+        direccion: this.form.value.direccion,
+        fecha: this.form.value.fecha
       }
       console.log(data);
       this.load = false;
@@ -51,7 +52,7 @@ export class CompoServeComponent implements OnInit {
             showConfirmButton: true,
             confirmButtonText: `Ok`
           }).then(() => {
-            this.route.navigate( ['/servicios'])
+            this.route.navigate( ['/pedidos'])
         })
 
       },
@@ -68,6 +69,5 @@ export class CompoServeComponent implements OnInit {
       console.log("Form error");
     }
   }
-
 
 }

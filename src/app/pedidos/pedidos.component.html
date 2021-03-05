@@ -1,18 +1,9 @@
 <app-nav></app-nav>
 
 <div id="posicion">
-    <div *ngIf="load">
+<div *ngIf="load">
       <h1>Pedidos </h1>
       <form [formGroup]="form" (ngSubmit)="onSubmit()" >
-          <div class="form-group">
-              <label for="exampleInputEmail1">Correo Electronico</label>
-              <input formControlName="email" type="email" class="form-control" i aria-describedby="emailHelp">
-          </div>
-    
-          <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <input formControlName="password" type="password" class="form-control" >
-          </div>
     
           <div class="form-group">
               <label for="exampleInputPassword1">Nombres</label>
@@ -23,11 +14,33 @@
               <label for="exampleInputPassword1">Apellidos</label>
               <input formControlName="lastname" type="text" class="form-control" >
           </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Celular</label>
+            <input formControlName="tel" type="text" class="form-control" >
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Direccion</label>
+            <input formControlName="direccion" type="text" class="form-control" id="inputAddress" >
+          </div>
+          
+          <div class="form-group">
+                <label for="exampleInputFecha">Fecha</label>
+                <input formControlName="fecha" type="date" class="form-control">
+          </div>
+        <br>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Opciones</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option selected>Elige platillo...</option>
+              <option value="1">sancocho</option>
+              <option value="2">Ajiaco</option>
+              <option value="3">Arroz Paisa</option>
+            </select>
+          </div>
           <br><br>
-          <button type="submit" class="btn btn-outline-success">Registrar</button>
-      </form>
-      <br>
-    </div>
+          <button type="submit" class="btn btn-outline-success">Enviar</button>
+    </form>
+</div>
     <div id="BORDES">
       <div *ngIf="!load">
       <h1>ESPERA UN MOMENTO...</h1>
@@ -55,8 +68,10 @@
       <div class="spinner-grow text-dark" role="status">
         <span class="visually-hidden"></span>
       </div>
-    </div>
-    </div>
-    </div>
+</div>
+</div>
+<div>
+</div>
 
 <app-footer></app-footer>
+
