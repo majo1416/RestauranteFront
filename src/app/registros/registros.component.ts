@@ -52,22 +52,26 @@ export class RegistrosComponent implements OnInit {
           }).then(() => {
             this.route.navigate( ['/'])
         })
-
-
-
-
       },
       (error) => {
         this.load = true;
-
         console.log(error.status);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'NO TENEMOS CONEXION EN EL SERVIDOR',
+        })
 
       })
 
 
     } else {
-
       console.log("Form error");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'VERIFIQUE EL INGRESO DE DATOS'
+      })
     }
   }
 }
