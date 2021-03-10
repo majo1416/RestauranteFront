@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { ReservacionComponent } from './reservacion/reservacion.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 
+import { DataTablesModule } from "angular-datatables";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
