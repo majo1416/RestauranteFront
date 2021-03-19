@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
-import Swal from 'sweetalert2/dist/sweetalert2.js'; 
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,27 +29,11 @@ export class LoginComponent implements OnInit {
         email: this.form.value.email,
         password: this.form.value.password
       }
-      console.log(data);
       this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/register',data).subscribe(
+      this.client.postRequest('http://localhost:5000/api/v01/user/login',data).subscribe(
         (response: any) => {
-          /*Swal.fire({
-            icon: 'question',
-            title: 'Desea guardar los cambios?',
-            showCancelButton: true,
-            cancelButtonText: `Cancelar`,
-            showDenyButton: true,
-            denyButtonText: `No guardar`,
-            showConfirmButton: true,
-            confirmButtonText: `Guardar`
-          }).then((result) => {
-            //Read more about isConfirmed, isDenied below
-            if (result.isConfirmed) {
-              this.route.navigate( ['/registerok'])
-            } else if (result.isDenied) {
-              Swal.fire('Los cambios no han sido guardados', '', 'info')
-            }
-          })*/
+          console.log(response);
+
           Swal.fire('INICIO DE SESION CORRECTAMENTE').then((result) =>{
             if (result.isConfirmed) {
                //cambiando load a true, volvemos a ocultar el spinner
@@ -57,9 +41,7 @@ export class LoginComponent implements OnInit {
               this.route.navigate( ['/']);
               //console.log(response);
             }
-          }) 
-   
-         
+          })
      },
       (error) => {
         this.load = true;
@@ -67,9 +49,8 @@ export class LoginComponent implements OnInit {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'NO TENEMOS CONEXION EN EL SERVIDOR',
+          text: 'INGRESO MAl UN DATO ,PUEDE SER LA CONTRASEÑA O EMAIL',
         })
-
       })
     } else {
       console.log("Form error");
