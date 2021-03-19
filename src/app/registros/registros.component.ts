@@ -37,7 +37,6 @@ export class RegistrosComponent implements OnInit {
         name: this.form.value.name,
         lastname: this.form.value.lastname,
       }
-      console.log(data);
       this.load = false;
       this.client.postRequest('http://localhost:5000/api/v01/user/register',data).subscribe(
 
