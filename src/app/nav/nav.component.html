@@ -24,26 +24,27 @@
             <a class="nav-link active" aria-current="page" href="/productos">Productos</a>
           </li>
 
+          <!-- reservaciones -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/reservacion">Reservar</a>
+          </li>
 
-          <!-- servicios -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Servicios
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/pedidos">pedidos</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/reservacion">reservacion</a></li>
-            </ul>
+          
+          <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
+            <a class="nav-link" >|Bienvenid@ {{auth.getCourrentUser()}}|<span class="sr-only"></span></a>
+          </li>
+          <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
+            <a class="nav-link" [routerLink]="['/']" (click)="auth.logout()">Salir<span class="sr-only"></span></a>
           </li>
     </ul>
       </div>
     </div>
     <div id="boton">
         <a class="nav-link active" aria-current="page" href="/login">
-          <button type="button" class="btn btn-outline-secondary">Iniciar Sesion</button>
+          <button type="button" class="btn btn-outline-secondary"(click)="auth.logout()">Iniciar Sesion</button>
         </a>
     </div>
-
+    
 </nav>
+
 

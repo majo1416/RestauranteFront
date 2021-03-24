@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
+import { AuthService } from '../../app/Service/auth.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: Router,
-    private client: ServiceService
+    private client: ServiceService,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,12 +32,19 @@ export class LoginComponent implements OnInit {
         password: this.form.value.password
       }
       this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/login',data).subscribe(
+      this.client.postRequest('http://localhost:5000/api/v01/user/login',data)
+      .subscribe(
         (response: any) => {
           console.log(response);
 
-          Swal.fire('INICIO DE SESION CORRECTAMENTE').then((result) =>{
+         Swal.fire('INICIO DE SESION CORRECTAMENTE')
+         .then((result) =>{
             if (result.isConfirmed) {
+               //se almacena el token usando el servicio Auth
+        this.auth.login(response.token)
+        //se almacena el nombre del usuario en el almacenamiento de
+        //sesion
+        this.auth.setCourrentUser(response.name)
                //cambiando load a true, volvemos a ocultar el spinner
               this.load = true;
               this.route.navigate( ['/']);
@@ -61,12 +70,6 @@ export class LoginComponent implements OnInit {
 
       })
     }
-
-
-
-
-
-
 
 
   }

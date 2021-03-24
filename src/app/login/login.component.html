@@ -13,7 +13,7 @@
             <input formControlName="password" type="password" class="form-control" >
         </div>
         <br><br>
-        <button type="submit" class="btn btn-outline-success">Iniciar</button>
+        <button type="submit" class="btn btn-outline-secondary">Iniciar</button>
         <br><br>
         <a class="nav-link active" aria-current="page" href="/registrar">¿No te haz registrado Registrar?</a>
     </form>
@@ -22,30 +22,14 @@
   <div id="BORDES">
     <div *ngIf="!load">
     <h1>ESPERA UN MOMENTO...</h1>
-    <div class="spinner-grow text-primary" role="status">
+    
+    <div class="spinner-grow text-secondary-center" role="status">
       <span class="visually-hidden"></span>
     </div>
-    <div class="spinner-grow text-secondary" role="status">
-      <span class="visually-hidden"></span>
+    <div class="spinner-grow text-secondary-center" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
-    <div class="spinner-grow text-success" role="status">
-      <span class="visually-hidden"></span>
-    </div>
-    <div class="spinner-grow text-danger" role="status">
-      <span class="visually-hidden"></span>
-    </div>
-    <div class="spinner-grow text-warning" role="status">
-      <span class="visually-hidden"></span>
-    </div>
-    <div class="spinner-grow text-info" role="status">
-      <span class="visually-hidden"></span>
-    </div>
-    <div class="spinner-grow text-light" role="status">
-      <span class="visually-hidden"></span>
-    </div>
-    <div class="spinner-grow text-dark" role="status">
-      <span class="visually-hidden"></span>
-    </div>
+   
   </div>
 </div>
 <app-footer></app-footer>
