@@ -27,50 +27,43 @@ export class LoginComponent implements OnInit {
   }
   async onSubmit() {
     if (this.form.valid) {
-      let data = {
+      this.load = false;
+      this.client.postRequest('http://localhost:5000/api/v01/user/login', {
         email: this.form.value.email,
         password: this.form.value.password
-      }
-      this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/login',data)
-      .subscribe(
+      }).subscribe(
         (response: any) => {
+          this.load = true;
           console.log(response);
 
-         Swal.fire('INICIO DE SESION CORRECTAMENTE')
-         .then((result) =>{
-            if (result.isConfirmed) {
-               //se almacena el token usando el servicio Auth
-        this.auth.login(response.token)
-        //se almacena el nombre del usuario en el almacenamiento de
-        //sesion
-        this.auth.setCourrentUser(response.name)
-               //cambiando load a true, volvemos a ocultar el spinner
-              this.load = true;
-              this.route.navigate( ['/']);
-              //console.log(response);
-            }
-          })
-     },
-      (error) => {
-        this.load = true;
-        console.log(error.status);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'INGRESO MAl UN DATO ,PUEDE SER LA CONTRASEÑA O EMAIL',
-        })
-      })
-    } else {
-      console.log("Form error");
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'DATOS ICORRECTOS',
+          this.auth.login(response.token)
+              //se almacena el nombre del usuario en el almacenamiento de
+              //sesion
+            this.auth.setCourrentUser(response.name)
+              //navegamos de nuevo al home, esta vez como usuario
+              //logueado
+            this.route.navigate( ['/']);
+          Swal.fire('INICIO DE SESION CORRECTAMENTE')
+            //cambiando load a true, volvemos a ocultar el spinner
+            this.load = true;
+            this.route.navigate( ['/']);
+            //console.log(response);
+          //this.route.navigate( ['/']);
+      }),
 
-      })
+      (error) => {
+
+        console.log(error.status);
+
+      };
+    } else {
+
+      console.log("Form error");
     }
 
 
-  }
+     }
+
+
+
 }

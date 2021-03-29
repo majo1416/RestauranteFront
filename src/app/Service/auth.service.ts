@@ -43,6 +43,7 @@ export class AuthService {
 
   //método que nos permite eliminar el nombre de usuario
   private deleteCourrentUser() : void {
+    localStorage.removeItem('token');
     localStorage.removeItem('courrentUser');
   }
 
@@ -71,5 +72,5 @@ export class AuthService {
   isAdmin() : Observable<boolean> {
     return this.admin.asObservable();
    }
-  
+
 }

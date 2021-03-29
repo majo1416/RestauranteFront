@@ -6,6 +6,8 @@ import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http'
 export class ServiceService {
 
   constructor(private http : HttpClient) { }
+
+
   getRequest(route: string, token?:string) {
 
     let config:any = {
@@ -37,7 +39,7 @@ export class ServiceService {
 
 /*
   postRequest(route: string,data?:any,token?:string){
-    
+
       let config:any ={
         responseType: "json"
       }

@@ -2,49 +2,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <img src="../../assets/images/kitchen.png" alt="" width="54px">
-        <h1>El Chefsito</h1>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- home -->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-           <!-- Quienes somos -->
-           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/quienesomos">Quienes Somos</a>
-          </li>
-          <!-- productos -->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/productos">Productos</a>
-          </li>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <img src="../../assets/images/kitchen.png" alt="" width="54px">
+      <h1>El Chefsito</h1>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- home -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+         <!-- Quienes somos -->
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/quienesomos">Quienes Somos</a>
+        </li>
+        <!-- productos -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/productos">Productos</a>
+        </li>
 
-          <!-- reservaciones -->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/reservacion">Reservar</a>
-          </li>
+        <!-- reservaciones -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/reservacion">Reservar</a>
+        </li>
 
-          
-          <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
-            <a class="nav-link" >|Bienvenid@ {{auth.getCourrentUser()}}|<span class="sr-only"></span></a>
-          </li>
-          <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
-            <a class="nav-link" [routerLink]="['/']" (click)="auth.logout()">Salir<span class="sr-only"></span></a>
-          </li>
-    </ul>
-      </div>
+
+        <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
+          <a class="nav-link" >|Bienvenid@ {{auth.getCourrentUser()}}|<span class="sr-only"></span></a>
+        </li>
+        <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
+          <a class="nav-link" [routerLink]="['/']" (click)="auth.logout()">Salir<span class="sr-only"></span></a>
+        </li>
+      </ul>
     </div>
-    <div id="boton">
-        <a class="nav-link active" aria-current="page" href="/login">
-          <button type="button" class="btn btn-outline-secondary"(click)="auth.logout()">Iniciar Sesion</button>
-        </a>
-    </div>
-    
+  </div>
+  <div id="boton">
+      <a class="nav-link active" aria-current="page" href="/login">
+        <button type="button" class="btn btn-outline-secondary"(click)="auth.logout()">Iniciar Sesion</button>
+      </a>
+  </div>
+
 </nav>
 
 

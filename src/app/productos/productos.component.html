@@ -13,19 +13,44 @@
         <tr>
           <th></th>
           <th>comida</th>
+          <th></th>
+
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let producto of productos">
-          
           <th scope="row"><img src="{{producto.ulrImg}}" width="180px"></th>
           <td>{{producto.nombre}}</td>
-         
+          <div>
+              <form [formGroup]="form" (ngSubmit)="onSubmit(producto.id,producto.nombre)">
+                <div class="form-group">
+                    <label for="exampleInputCantidad1">Cantidad</label>
+                    <input formControlName="cantidad" type="number" class="form-control">
+                </div>
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    Del 1 hasta 10
+                  </span>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">Iniciar</button>
+            </form>
+            </div>
         </tr>
       </tbody>
   </table>
 </div>
 
-  
+<table>
+  <thead>
+    <tr>
+      <th>comida</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of info">
+    <p>{{user.correo}}</p>
+    </tr>
+  </tbody>
+</table>
 
 
