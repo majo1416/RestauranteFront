@@ -43,3 +43,16 @@ label:hover ~ label {
 input[type="radio"]:checked ~ label {
   color: orange;
 }
+
+#imgcolombia  {
+  width: 260px;
+  height: 210px;
+  display: inline-block;
+    margin : auto auto auto 700px;
+}
+#imgfrancia{
+  width: 260px;
+  height: 210px;
+  display: inline-block;
+    margin : auto auto auto -580px;
+}

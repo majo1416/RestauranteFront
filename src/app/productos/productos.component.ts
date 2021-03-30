@@ -18,6 +18,10 @@ export class ProductosComponent implements OnInit {
   productos : any;
   info :any;
   form: FormGroup;
+
+  botoncolombia:boolean=true;
+  botonfrancia:boolean=false;
+
   constructor(
     public clientProduct: ClientProductsService,
     private fb: FormBuilder,
@@ -69,6 +73,14 @@ export class ProductosComponent implements OnInit {
       console.log(data);
     }
   }
-
+  mostrarfrancia(){
+    this.botoncolombia=false;
+    this.botonfrancia=true;
+    }
+    
+    mostrarcolombia(){
+    this.botoncolombia=true;
+    this.botonfrancia=false;
+    }
 
 }

@@ -1,20 +1,30 @@
-<h3>Colombia</h3>
-<p><input type="image" name="botondeenvio" src="/assets/images/colombia.png" alt="Enviar formulario" width="260" height="210" ></p>
-
-<h3>Francia</h3>
-<p><input type="image" name="botondeenvio" src="/assets/images/francia.png" alt="Enviar formulario"width="260" height="210" ></p>
-
 <h5>Selecciona la bandera la cual deseas conocer sus platillos</h5>
 
+<div id="imgcolombia">
+  <h1>Colombia</h1>
+<input type="image" name="botondeenvio" src="/assets/images/colombia.png"(click)="mostrarcolombia()" alt="Enviar formulario"  >
+</div>
+
+<div id="imgfrancia">
+<h1>Francia</h1>
+<input type="image" name="botondeenvio" src="/assets/images/francia.png" (click)="mostrarfrancia() "alt="Enviar formulario" >
+</div>
+
+<div *ngIf="botonfrancia">
+  <h3>Platillos tipicos de francia</h3>
+</div>
+
 <!--<button type="button" (click)="pedirProductos()">Descargar Productos</button>-->
-<div class="container">
+
+  <div *ngIf="botoncolombia">
+    <h3>Platillos tipicos de colombia</h3>
+    <div class="container">
     <table datatable [dtOptions]="dtOptions" class="table table- striped table-bordered row-border hover">
       <thead>
         <tr>
           <th></th>
           <th>comida</th>
           <th></th>
-
         </tr>
       </thead>
       <tbody>
@@ -38,6 +48,7 @@
         </tr>
       </tbody>
   </table>
+</div>
 </div>
 
 <table>

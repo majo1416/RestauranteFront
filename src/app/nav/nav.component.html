@@ -30,6 +30,12 @@
         <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
           <a class="nav-link" >|Bienvenid@ {{auth.getCourrentUser()}}|<span class="sr-only"></span></a>
         </li>
+        <div *ngFor="let user of info">
+          <li *ngIf="user.admin=='1'" class="nav-item active">
+           <h3>confi</h3>
+            <span class="sr-only"></span>
+          </li>
+        </div>
         <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
           <a class="nav-link" [routerLink]="['/']" (click)="auth.logout()">Salir<span class="sr-only"></span></a>
         </li>

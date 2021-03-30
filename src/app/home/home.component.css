@@ -1,4 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,500&display=swap');
-h1{font-family: 'Newsreader', serif;}
-a{font-family: 'Newsreader', serif;}
-#bordes{margin-left: 100px;}
+h1{font-family: 'Newsreader', serif;text-align: center;font-weight: bold;  }
+ a{font-family: 'Newsreader', serif; background-color: #99C487 ;
+    /*display:block;6CA056
+    margin-left: auto;99C487 
+    margin-right: auto;*/
+   /* height: auto;
+    width: 100%;*/
+    display: inline-block;
+    margin : auto auto auto 580px;}
+/*#prueba{display: inline-block;
+    margin : auto auto auto 940px;}
+
+#prueba a{display: inline-block;
+    margin : auto auto auto 200px;}
+#prueba img {display: inline-block;
+    margin : 45px auto 45px -500px;}
+*/
+/*altura:height    ancho:width*/
+.fondo{background-color:rgb(228, 222, 222);}
+
+.home{ width: 100%;
+   /* max-width: 5000px;*/
+    margin:0 auto;
+    overflow: hidden;
+   /* box-sizing: border-box;*/
+    }
+/*.home img{
+    width:100%;
+    height: auto;
+}*/
+ @media screen and (max-width:800px){
+    .home{
+        width: 100%;
+    }
+ }
