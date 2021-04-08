@@ -11,6 +11,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class ReservacionComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
+  info:any;
+  correo:any;
   constructor(
     private fb: FormBuilder,
     private route: Router,
@@ -18,24 +20,35 @@ export class ReservacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      numero: ['', Validators.required],
+      cel: ['', Validators.required],
       fecha: ['', Validators.required],
-      name: ['', Validators.required],
+      persona: ['', Validators.required],
+      
     });
+
+    this.pedirinformacion();
+    console.log(this.info)
+
+    for (const infoget of this.info) {
+    this.correo=infoget['correo']
+      console.log(infoget['correo'])
   }
-  async onSubmit() {
+}
+  async onSubmit(idusuario:any) {
+
 
 
     if (this.form.valid) {
 
       let data = {
-        numero: this.form.value.numero,
+        cel: this.form.value.cel,
         fecha: this.form.value.fecha,
-        name: this.form.value.name,
+        persona: this.form.value.persona,
+        idusuario:this.info
       }
       console.log(data);
       this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/register',data).subscribe(
+      this.client.postRequest('http://localhost:5000/api/v01/user/reservar',data).subscribe(
 
         (response: any) => {
           //cambiando load a true, volvemos a ocultar el spinner
@@ -70,5 +83,21 @@ export class ReservacionComponent implements OnInit {
       })
     }
   }
+pedirinformacion(){
+this.client.getRequest("http://localhost:5000/api/v01/user/getInfo",localStorage.getItem("token"))
+.subscribe(
+
+  (data):any=>{this.info=data["data"]
+console.log(this.info)
+}
+  
+), (error)=>{console.log(error.status)}
+
 
 }
+
+}
+
+
+
+

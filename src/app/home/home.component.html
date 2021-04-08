@@ -1,7 +1,10 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+
 <div class="home">
+
 <app-nav></app-nav>
 
+<!-- carrusel de imagenes-->
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -27,48 +30,45 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
 <br><br>
 
-<div class="card w-75-center">
-    <div class="card-body">
-      <h1 class="card-title">Bienvenido </h1>
-      <p class="card-text">Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras disfrutas con todos tus sentidos la experiencia que vives. Quienes formamos el equipo de este espacio intentamos en todo momento escuchar lo que quieres para adaptarnos a lo que buscas.</p>
-     <a href="/quienesomos" class="btn btn">Mas Sobre Nosotros</a>
-    </div>
+<!-- Presentacion-->
+<div class="card w-75-center" id="presentacion">
+  <div class="card-body" class="fondo">
+    <h1 style="color: white;" class="card-title">Bienvenido </h1>
+    <p id="preletras" style="color: white;" class="card-text">Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras disfrutas con todos tus sentidos la experiencia que vives. Quienes formamos el equipo de este espacio intentamos en todo momento escuchar lo que quieres para adaptarnos a lo que buscas.</p> 
+    <a href="/quienesomos" class="btn btn">Mas sobre nosotros</a>
   </div>
-  <br><br>
+</div>
+<br><br>
 
-  <div class="card w-75-center">
-    <div class="card-body">
-        <img src="https://cdn.pixabay.com/photo/2016/05/12/00/07/appetizer-1386743__340.jpg" alt="..." width="400">
-      <h1 class="card-title">Nuestros Platillos </h1>
-      <p class="card-text">Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras disfrutas con todos tus sentidos la experiencia que vives. Quienes formamos el equipo de este espacio intentamos en todo momento escuchar lo que quieres para adaptarnos a lo que buscas.</p>
-     <a href="/productos" class="btn btn">Ver productos</a>
-    </div>
-  </div>
-  <br><br>
 
-  <div class="card mb-3">
-    <img src="https://www.ecestaticos.com/image/clipping/df686a373d091fc5b2991b249fbb36d4/los-restaurantes-estan-cobrando-a-la-gente-que-cancela-la-reserva.jpg" class="card-img-top" alt="..."width="200" height="300">
-    <div class="card-body">
-      <h5 class="card-title">Reserva y vive una feliz experiencia </h5>
-      <p class="card-text">Te ofrecemos el espacio perfecto para adaptarnos a cada ocasión. Ya sea comida de negocios, cena de empresa, cumpleaños o cualquier evento especial, haremos todo lo posible para convertirlo en inolvidable.</p>
-      <a href="/reservacion" class="btn btn">Solicite su reserva</a>
-    </div>
+<!--Productos -->
+<div id="productos"><img src="https://cdn.pixabay.com/photo/2016/05/12/00/07/appetizer-1386743__340.jpg" alt="..." ></div>
+<div class="card" id="textpro" style="width: 30rem;">
+  <div class="card-body" class="fondo">
+    <h3 class="card-title">Nuestros Platillos</h3>
+    <p class="card-text">Queremos ofrecerte el marco perfecto para que estés a gusto, para que puedas conversar mientras disfrutas con todos tus sentidos la experiencia que vives. Quienes formamos el equipo de este espacio intentamos en todo momento escuchar lo que quieres para adaptarnos a lo que buscas.</p>
+    <a href="/productos" class="btn btn">Ver productos</a>
   </div>
-<!--
-  <div id="prueba">
-    <img src="https://cdn.pixabay.com/photo/2016/05/12/00/07/appetizer-1386743__340.jpg" alt="..." width="300">
-  <div class="card text-end" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+</div>
+<br><br>
+
+<!-- Reservaciones-->
+<div id="reservar"><img src="../../assets/images/productos.png" alt="..."></div>
+<div class="card text-end" id="textreserva" style="width: 30rem;">
+  <div class="card-body" class="fondo">
+    <h3 class="card-title">Reserva y vive una feliz experiencia </h3>
+    <p class="card-text">Te ofrecemos el espacio perfecto para adaptarnos a cada ocasión. Ya sea comida de negocios, cena de empresa, cumpleaños o cualquier evento especial, haremos todo lo posible para convertirlo en inolvidable.</p>
+    <a href="/reservacion" class="btn btn">Reservacion</a>
   </div>
-</div> 
--->
+</div>
+<br><br><br>
+
+
+
+
+ 
 
 <app-footer></app-footer>
 </div>

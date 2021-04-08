@@ -1,11 +1,14 @@
 <app-nav></app-nav>
+<div class="reservar">
 <div id="posicion">
-    <div *ngIf="load">
-      <h1>ZONA DE RESERVACION: </h1>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <div *ngIf="load">
+      <h3>ZONA DE RESERVACION: </h3>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(correo)" >
           <div class="form-group">
               <label for="exampleInputNumero1">Numero telefonico</label>
-              <input formControlName="numero" type="tel" class="form-control">
+              <input formControlName="cel" type="tel" class="form-control">
           </div>
     
           <div class="form-group">
@@ -13,12 +16,17 @@
               <input formControlName="fecha" type="date" class="form-control" >
           </div>
           <div class="form-group">
-              <label for="exampleInputName1">Ingrese el nombre completo</label>
-              <input formControlName="name" type="text" class="form-control" >
-          </div>
+            <label for="exampleInputNumero2">Numero de personas</label>
+            <input formControlName="persona" type="text" class="form-control">
+        </div>
+        
           <br><br>
-          <button type="submit" class="btn btn-outline-secondary">Registrar</button>
+          <button type="submit" class="btn btn-">Reservar</button>
       </form>
+    </div>
+      </div>
+
+
     </div>
     <div id="BORDES">
       <div *ngIf="!load">
@@ -40,5 +48,5 @@
       </div>
     </div>
     </div>
-    
-<app-footer></app-footer>
+  </div>  
+

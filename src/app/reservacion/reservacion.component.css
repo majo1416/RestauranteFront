@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,500&display=swap');
-#posicion{margin-left: 100px;margin-right: 400px;}
-h1{font-family: 'Newsreader', serif;}
+#posicion{margin-left: 600px;margin-right: 500px;}
+h3{font-family: 'Newsreader', serif;font-size:20px ;}
+
 label{font-family: 'Newsreader', serif;}
 #BORDES{margin-left: 100px;}
+.reservar{ background-image: url("https://www.ecestaticos.com/image/clipping/df686a373d091fc5b2991b249fbb36d4/los-restaurantes-estan-cobrando-a-la-gente-que-cancela-la-reserva.jpg");
+   height:900px; 
+    padding: 45px 90px 290px 91px;}
+/*.resersar{background-color: ;display:outside;padding: 65px -100px -990px -91px; }*/
+button{font-family: 'Newsreader', serif; background-color: #99C487 ;}

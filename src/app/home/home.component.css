@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,500&display=swap');
 h1{font-family: 'Newsreader', serif;text-align: center;font-weight: bold;  }
- a{font-family: 'Newsreader', serif; background-color: #99C487 ;
+h3{font-family: 'Newsreader', serif;text-align: center;font-weight: bold;}
+ 
     /*display:block;6CA056
     margin-left: auto;99C487 
     margin-right: auto;*/
    /* height: auto;
     width: 100%;*/
-    display: inline-block;
-    margin : auto auto auto 580px;}
+   /* display: inline-block;
+    margin : auto auto auto 580px;*/
 /*#prueba{display: inline-block;
     margin : auto auto auto 940px;}
 
@@ -17,18 +18,62 @@ h1{font-family: 'Newsreader', serif;text-align: center;font-weight: bold;  }
     margin : 45px auto 45px -500px;}
 */
 /*altura:height    ancho:width*/
-.fondo{background-color:rgb(228, 222, 222);}
 
+/*contenedor de toda la pagina*/
 .home{ width: 100%;
    /* max-width: 5000px;*/
     margin:0 auto;
     overflow: hidden;
    /* box-sizing: border-box;*/
     }
-/*.home img{
-    width:100%;
-    height: auto;
-}*/
+
+/*botones*/
+a{font-family: 'Newsreader', serif; background-color: #99C487 ;}
+
+/*seccion de bienvenidos*/
+#presentacion{
+    display: inline-block;
+    margin : 15px 50px auto 90px;
+    padding: 35px;
+    background-color: black;
+}
+#preletras{font-size: 22px;text-align: justify;}
+
+/*seccion de productos*/  
+#productos{
+    width:550px;
+    height:1000;
+    margin : 25px auto auto 290px;
+    
+}
+#textpro {
+    display:inside ;
+    /*Arriba | Derecha | Abajo | Izquierda*/
+    margin : -325px auto 10px 750px;
+    height: 390px;
+    padding: 55px;
+    border:5px ;
+    border-color:#99C487 ;
+    border-style: solid;
+    }
+/*seccion de reservacion*/
+#reservar{
+    display:inside ;
+    /*Arriba | Derecha | Abajo | Izquierda*/
+    margin : 200px auto auto  800px;
+    
+    }
+#textreserva{
+    width:50%;
+    height: 390px;
+    margin : -385px auto auto 350px;
+    padding: 55px;
+    border:5px ;
+    border-color:#99C487 ;
+    border-style: solid;
+}
+/*.fondo{background-color: rgb(227, 227, 228);border-radius: 10px;}*/
+
  @media screen and (max-width:800px){
     .home{
         width: 100%;

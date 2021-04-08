@@ -1,3 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,500&display=swap');
-#posicion{margin-left: 100px;margin-right: 400px;}
+#posicion{display: inline-block;}
 h1{font-family: 'Newsreader', serif;}
+.login{background-image: url("https://i.pinimg.com/236x/be/83/50/be8350a93b289b5c8ef65a01ee914d2b.jpg");
+     height:900px; 
+
+    /*padding: 45px 90px 290px 91px;*/}
