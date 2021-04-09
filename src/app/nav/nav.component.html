@@ -1,10 +1,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <img src="../../assets/images/kitchen.png" alt="" width="54px">
       <h1>El Chefsito</h1>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -30,21 +28,23 @@
         <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
           <a class="nav-link" >|Bienvenid@ {{auth.getCourrentUser()}}|<span class="sr-only"></span></a>
         </li>
-        <div *ngFor="let user of info">
-          <li *ngIf="user.admin=='1'" class="nav-item active">
-           <h3>confi</h3>
-            <span class="sr-only"></span>
-          </li>
+        <li class="nav-item dropdown" *ngIf="auth.isLoggedIn() | async">
+        <div *ngIf="auth.getAdminUser()=='1'" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Configuracion
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/adminProduct">Productos</a></li>
+          </ul>
         </div>
         <li *ngIf="auth.isLoggedIn() | async" class="nav-item active">
           <a class="nav-link" [routerLink]="['/']" (click)="auth.logout()">Salir<span class="sr-only"></span></a>
         </li>
       </ul>
     </div>
-  </div>
-  <div id="boton">
+  <div id="boton" *ngIf="auth.getLogin() == '0'" class="d-flex">
       <a class="nav-link active" aria-current="page" href="/login">
-        <button type="button" class="btn btn-outline-secondary"(click)="auth.logout()">Iniciar Sesion</button>
+        <button type="button" class="btn btn-outline-success" (click)="auth.logout()">Iniciar Sesion</button>
       </a>
   </div>
 

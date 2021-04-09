@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute,ParamMap } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
+import {ClientProductsService} from'../Service/client-products.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 @Component({
@@ -12,67 +13,94 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class PedidosComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
+  infoProduct: any;
+  infoUser: any ;
+  lado : string = "hola";
+  productos : any;
   constructor(  private fb: FormBuilder,
     private route: Router,
-    private client: ServiceService) { }
+    private param : ActivatedRoute,
+    private client: ServiceService,
+    public clientProduct: ClientProductsService
+   ) { }
 
+
+  getProduct(id:any){
+    let data = {"id" : id}
+   this.clientProduct.getAllProductoId('http://localhost:5000/api/v01/user/get',data).subscribe(
+    (response) : any =>{
+      this.productos = response["datos"]
+      console.log(this.productos);
+    }
+   ),
+   (error) => {
+     console.log(error.status);
+   }
+  }
+  getInfo(){
+    this.client.getRequest('http://localhost:5000/api/v01/user/getInfo',localStorage.getItem('token')
+    ).subscribe(
+      (data): any => {this.infoUser = data["datos"]
+    }
+    ,
+    (error) => {
+      Swal.fire({
+      title : 'Oops...',
+      icon: 'error',
+      text: '! Debes iniciar sesion !',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+      })
+       this.route.navigate(['/login'])
+    })
+  }
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', Validators.email],
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
-      tel: ['', Validators.required],
       direccion: ['', Validators.required],
-      fecha: ['', Validators.required],
+      numero: ['', Validators.required],
+      fecha : ['',Validators.required],
+      cantidad : ['',Validators.required]
     });
-  }
-  async onSubmit() {
 
-
-    if (this.form.valid) {
-
-      let data = {
-        email: this.form.value.email,
-        name: this.form.value.name,
-        lastname: this.form.value.lastname,
-        tel: this.form.value.tel,
-        direccion: this.form.value.direccion,
-        fecha: this.form.value.fecha
-      }
-      console.log(data);
-      this.load = false;
-      this.client.postRequest('http://localhost:5000/api/v01/user/register',data).subscribe(
-
-        (response: any) => {
-          //cambiando load a true, volvemos a ocultar el spinner
-          this.load = true;
-          Swal.fire({
-            icon: 'success',
-            title: 'Pedido exitoso',
-            showConfirmButton: true,
-            confirmButtonText: `Ok`
-          }).then(() => {
-            this.route.navigate( ['/pedidos'])
-        })
-
-      },
-      (error) => {
-        this.load = true;
-        console.log(error.status);
-        this.load = true;
-        console.log(error.status);
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'NO TENEMOS CONEXION EN EL SERVIDOR',
-        })
-      })
-
-
-    } else {
-
-      console.log("Form error");
+    this.param.paramMap
+      .subscribe((params : ParamMap) => {
+      let id = + params.get('id');
+      this.infoProduct = id;
+      console.log(this.infoProduct);
+      this.getProduct(this.infoProduct)
+    });
+    this.getInfo()
     }
-  }
+    async onSubmit() {
+    if (this.form.valid) {
+      try {
+        for (const getInfo of this.infoUser) {
+          this.infoUser = getInfo['correo'];
+        }
+        this.client.postRequest('http://localhost:5000/api/v01/user/pedido',{
+          direccion: this.form.value.direccion,
+          numeroSecundario: this.form.value.numero,
+          fecha : this.form.value.fecha,
+          cantidad : this.form.value.cantidad,
+          comida : this.infoProduct,
+          user : this.infoUser
+        }).subscribe(
+          (response: any) => {
+            this.load = true;
+          }),
+          (error) => {
+            console.log("ESTAMOS AQUI")
+          };
+      } catch (error) {
+        console.log("NO INICIO SESION")
+      }
+    }else{
+      console.log("ERROR FORM")
+    }
+    }
 
 }

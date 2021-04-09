@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ClientProductsService} from'../Service/client-products.service';
 import {ServiceService} from  '../Service/service.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { AuthService } from '../../app/Service/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { data } from 'jquery';
@@ -26,7 +27,8 @@ export class ProductosComponent implements OnInit {
     public clientProduct: ClientProductsService,
     private fb: FormBuilder,
     private route: Router,
-    public Client : ServiceService
+    public Client : ServiceService,
+    public auth : AuthService
     ) { }
   pedirProductos(){
     this.clientProduct.getAllProducto('http://localhost:5000/api/v01/user/product').subscribe(
@@ -43,6 +45,8 @@ export class ProductosComponent implements OnInit {
     }
     ,
     (error) => {
+      this.auth.logout();
+      console.log("DEBEMOS INICIAR SESION");
       console.log(error);
     })
   }
@@ -77,7 +81,7 @@ export class ProductosComponent implements OnInit {
     this.botoncolombia=false;
     this.botonfrancia=true;
     }
-    
+
     mostrarcolombia(){
     this.botoncolombia=true;
     this.botonfrancia=false;

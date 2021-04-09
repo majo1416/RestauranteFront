@@ -18,6 +18,8 @@ import { ReservacionComponent } from './reservacion/reservacion.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 
 import { DataTablesModule } from "angular-datatables";
+import { AdminProductComponent } from './admin-product/admin-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DataTablesModule } from "angular-datatables";
     MostrarProductComponent,
     LoginComponent,
     ReservacionComponent,
-    PedidosComponent
+    PedidosComponent,
+    AdminProductComponent,
+    EditProductComponent
   ],
   imports: [
     FormsModule,
