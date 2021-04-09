@@ -1,0 +1,50 @@
+<app-nav></app-nav>
+<div class="row" *ngIf="load" >
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Nombre del prodcuto</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="nombreProducto">
+          <label for="exampleInputPassword1" class="form-label">Foto del plato</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="ulrImg">
+          <label for="exampleInputPassword1" class="form-label">Precio</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" [(ngModel)]="precio">
+          <button type="submit" class="btn btn-primary" (click)="postActualizar(nombreProducto,ulrImg,precio)">Actualizar.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="BORDES">
+  <div *ngIf="!load">
+  <h1>ESPERA UN MOMENTO...</h1>
+
+  <div class="spinner-grow text-primary" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-success" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-info" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-light" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+  <div class="spinner-grow text-dark" role="status">
+    <span class="visually-hidden"></span>
+  </div>
+
+</div>
+</div>
+<app-footer></app-footer>

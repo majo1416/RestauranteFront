@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService} from '../Service/service.service';
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { AuthService } from '../../app/Service/auth.service';
 @Component({
   selector: 'app-reservacion',
   templateUrl: './reservacion.component.html',
@@ -11,30 +12,25 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 export class ReservacionComponent implements OnInit {
   form: FormGroup;
   load: boolean = true;
-  info:any;
+  infoUser: any ;
   correo:any;
   constructor(
     private fb: FormBuilder,
     private route: Router,
-    private client: ServiceService) { }
+    private client: ServiceService,
+    public auth : AuthService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       cel: ['', Validators.required],
       fecha: ['', Validators.required],
       persona: ['', Validators.required],
-      
+
     });
+    this.getInfo()
 
-    this.pedirinformacion();
-    console.log(this.info)
-
-    for (const infoget of this.info) {
-    this.correo=infoget['correo']
-      console.log(infoget['correo'])
-  }
 }
-  async onSubmit(idusuario:any) {
+  async onSubmit() {
 
 
 
@@ -44,7 +40,7 @@ export class ReservacionComponent implements OnInit {
         cel: this.form.value.cel,
         fecha: this.form.value.fecha,
         persona: this.form.value.persona,
-        idusuario:this.info
+        idusuario:this.infoUser
       }
       console.log(data);
       this.load = false;
@@ -83,18 +79,31 @@ export class ReservacionComponent implements OnInit {
       })
     }
   }
-pedirinformacion(){
-this.client.getRequest("http://localhost:5000/api/v01/user/getInfo",localStorage.getItem("token"))
-.subscribe(
-
-  (data):any=>{this.info=data["data"]
-console.log(this.info)
-}
-  
-), (error)=>{console.log(error.status)}
-
-
-}
+  getInfo(){
+    this.client.getRequest('http://localhost:5000/api/v01/user/getInfo',localStorage.getItem('token')
+    ).subscribe(
+      (data): any => {this.infoUser = data["datos"]
+      for (const user of this.infoUser) {
+          this.infoUser = user  ['correo']
+      }
+    }
+    ,
+    (error) => {
+      Swal.fire({
+      title : 'Oops...',
+      icon: 'error',
+      text: '! Debes iniciar sesion !',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+      })
+      this.auth.logout();
+      this.route.navigate(['/login'])
+    })
+  }
 
 }
 
